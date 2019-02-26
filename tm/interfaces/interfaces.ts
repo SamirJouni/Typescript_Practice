@@ -10,8 +10,8 @@
 // showTodo(myTodo);
 
 interface Todo {
-	title: string,
-	text: string
+	title: string;
+	text: string;
 }
 
 function showTodo(todo: Todo) {
