@@ -2,7 +2,6 @@ interface UserInterface {
 	name: string;
 	email: string;
 	age: number;
-	register();
 	payInvoice();
 }
 
@@ -23,7 +22,7 @@ class User implements UserInterface{
 		console.log("User Created: " + this.name);
 	}
 
-	register (){
+	private register (){
 		console.log(this.name + ' has been registered.');
 	}
 
