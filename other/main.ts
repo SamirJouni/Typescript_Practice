@@ -74,3 +74,63 @@ message3 = 'abc';
 let endsWithC3 = (message3 as string).endsWith('c');
 // this is more readable. But you would see the other way being used
 // more often.
+
+let drawPoint = (x, y) => {
+	// ...
+}
+// while working with functions like this, you may end up
+// having to work with many variables. Avoid doing the following
+// at all costs:
+let drawPoint1 = (x, y, a, b, c, d, e) => {
+	// ...
+}
+// instead, we'll just incapsulate them into one object
+// and pass that instead.
+
+let drawPoint2 = (point) => {
+	// ...
+}
+drawPoint2({
+	x: 1,
+	y: 2
+});
+
+// but there is a problem with this approach. Since the
+// function is expecting an x and y property but nothing is stopping
+// anyone from passing this to the function. You won't see any errors
+// at compile time.
+
+let drawPoint3 = (point) => {
+	// ...
+}
+drawPoint3({
+	name: 'Samir'
+});
+
+// To fix this, we will add types using inline annotation.
+let drawPoint4 = (point: {x: number, y: number}) => {
+	// ...
+}
+drawPoint4({
+	x: 1,
+	y: 2
+});
+
+// But that above is too verbose, and only works well for simple cases,
+// so let's fix this using Interfaces.
+
+interface Point {
+	x: number,
+	y: number
+}
+// When naming interfaces, always use pascal case. i.e. uppercase all
+// initials of every word.
+
+let drawnPoint5 = (point: point) => {
+	// ...
+}
+
+drawPoint ({
+	x: 1,
+	y: 2
+})
