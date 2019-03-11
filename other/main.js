@@ -88,3 +88,48 @@ message3 = 'abc';
 var endsWithC3 = message3.endsWith('c');
 // this is more readable. But you would see the other way being used
 // more often.
+var drawPoint = function (x, y) {
+    // ...
+};
+// while working with functions like this, you may end up
+// having to work with many variables. Avoid doing the following
+// at all costs:
+var drawPoint1 = function (x, y, a, b, c, d, e) {
+    // ...
+};
+// instead, we'll just incapsulate them into one object
+// and pass that instead.
+var drawPoint2 = function (point) {
+    // ...
+};
+drawPoint2({
+    x: 1,
+    y: 2
+});
+// but there is a problem with this approach. Since the
+// function is expecting an x and y property but nothing is stopping
+// anyone from passing this to the function. You won't see any errors
+// at compile time.
+var drawPoint3 = function (point) {
+    // ...
+};
+drawPoint3({
+    name: 'Samir'
+});
+// To fix this, we will add types using inline annotation.
+var drawPoint4 = function (point) {
+    // ...
+};
+drawPoint4({
+    x: 1,
+    y: 2
+});
+// When naming interfaces, always use pascal case. i.e. uppercase all
+// initials of every word.
+var drawnPoint5 = function (point) {
+    // ...
+};
+drawPoint({
+    x: 1,
+    y: 2
+});
