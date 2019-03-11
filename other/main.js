@@ -65,3 +65,26 @@ var Color3;
     Color3[Color3["Purple"] = 3] = "Purple";
 })(Color3 || (Color3 = {}));
 ;
+var message = 'abc';
+// when you type message. you get the intellisense in vscode
+// after typing the dot. It can be very useful.
+var endsWithC = message.endsWith('c');
+// but if you were to declare the variable then assign it,
+// something very interesting happens !
+var message1;
+message1 = 'abc';
+var endsWithC1 = message1.endsWith('c');
+// have you noticed that after typing the dot, intellisense
+// didn't appear ? Why is that you may wonder. Because the
+// type of message is any, and type any doesn't have any special methods
+// like say a string does.
+// but we can still get this to work using type assertions
+var message2;
+message2 = 'abc';
+var endsWithC2 = message2.endsWith('c');
+// this is only one way of doing it, so there is another way
+var message3;
+message3 = 'abc';
+var endsWithC3 = message3.endsWith('c');
+// this is more readable. But you would see the other way being used
+// more often.

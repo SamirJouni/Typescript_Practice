@@ -48,3 +48,29 @@ enum Color2 {Red = 0, Green = 1, Purple = 2, Blue = 3};
 // and purple would just take the value 3
 enum Color3 {Red = 0, Green = 1, Blue = 2, Purple = 3};
 
+let message = 'abc';
+// when you type message. you get the intellisense in vscode
+// after typing the dot. It can be very useful.
+let endsWithC = message.endsWith('c');
+
+// but if you were to declare the variable then assign it,
+// something very interesting happens !
+let message1;
+message1 = 'abc';
+let endsWithC1 = message1.endsWith('c');
+// have you noticed that after typing the dot, intellisense
+// didn't appear ? Why is that you may wonder. Because the
+// type of message is any, and type any doesn't have any special methods
+// like say a string does.
+
+// but we can still get this to work using type assertions
+let message2;
+message2 = 'abc';
+let endsWithC2 = (<string>message2).endsWith('c');
+
+// this is only one way of doing it, so there is another way
+let message3;
+message3 = 'abc';
+let endsWithC3 = (message3 as string).endsWith('c');
+// this is more readable. But you would see the other way being used
+// more often.
