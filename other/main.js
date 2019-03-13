@@ -396,3 +396,4 @@ point.draw();
 // or a combination of methods that expose a field. Like getters
 // and setters. While a field is for example x and y. Fields
 // should almost always be private.
+
